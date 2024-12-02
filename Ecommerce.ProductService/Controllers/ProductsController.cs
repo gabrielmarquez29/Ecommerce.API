@@ -17,13 +17,17 @@ namespace Ecommerce.ProductService.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+            .Select(product => ProductToDTO(product))
+            .ToListAsync();
         }
 
-        // GET: api/Products/5
-        [HttpGet("{id}")]
+
+
+  // GET: api/Products/5
+  [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
@@ -98,5 +102,13 @@ namespace Ecommerce.ProductService.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
-    }
+
+        private static ProductDTO ProductToDTO(Product product) => 
+        new ProductDTO { 
+        Id = product.Id,
+        Name = product.Name,
+        Description = product.Description,
+        Price = product.Price
+        };
+ }
 }

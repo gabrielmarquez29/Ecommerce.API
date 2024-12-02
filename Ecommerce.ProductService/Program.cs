@@ -1,8 +1,6 @@
 
 using Ecommerce.ProductService.Domain;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Ecommerce.ProductService.Controllers;
 
 namespace Ecommerce.ProductService
 {
