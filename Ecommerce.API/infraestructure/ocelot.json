@@ -1,0 +1,21 @@
+{
+  "Agregates": [
+
+  ],
+  "Routes": [
+    {
+
+      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/todos",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ]
+
+    }
+  ]
+}
