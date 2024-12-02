@@ -39,8 +39,6 @@ namespace Ecommerce.ProductService
 
    app.MapControllers();
 
-               app.MapProductEndpoints();
-
    app.Run();
   }
  }
